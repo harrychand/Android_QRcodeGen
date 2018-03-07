@@ -10,21 +10,27 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="QR Code Generator"/>
+        android:text="QR Code Generator"
+        android:id="@+id/textView3" />
+
     <EditText
+        android:id="@+id/text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:hint="Enter Text to generate"
-        android:id="@+id/text"/>
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textView3"
+        android:hint="Enter Your Name" />
     p4v
-    exit <Button
+    exit
+
+    <Button
+        android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:layout_centerHorizontal="true"
-        android:text="GENERATE QR"
-        android:id="@+id/button"/>
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/car"
+        android:layout_marginStart="77dp"
+        android:text="GENERATE QR" />
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
@@ -34,10 +40,43 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="500dp"
-        android:layout_below="@+id/view">
+        android:layout_below="@+id/view"
+        android:id="@+id/linearLayout">
+
         <ImageView
+            android:id="@+id/image"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/image"/>
+            android:layout_height="match_parent" />
     </LinearLayout>
+
+    <EditText
+        android:id="@+id/car"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/text"
+        android:ems="10"
+        android:hint="Car Plate #"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/phonr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/car"
+        android:layout_alignBottom="@+id/car"
+        android:layout_marginStart="35dp"
+        android:layout_toEndOf="@+id/car"
+        android:ems="10"
+        android:hint="Phone Number"
+        android:inputType="textPersonName" />
+
+    <Button
+        android:id="@+id/pay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/phonr"
+        android:layout_below="@+id/phonr"
+        android:layout_marginEnd="30dp"
+        android:text="Pay" />
 </RelativeLayout>

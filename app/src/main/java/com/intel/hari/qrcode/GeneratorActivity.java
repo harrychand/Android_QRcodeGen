@@ -24,6 +24,7 @@ public class GeneratorActivity extends AppCompatActivity {
     Button button;
     ImageView image;
     String text2QR;
+    Button pay;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +33,7 @@ public class GeneratorActivity extends AppCompatActivity {
         text = (EditText) findViewById(R.id.text);
         button = (Button) findViewById(R.id.button);
         image = (ImageView) findViewById(R.id.image);
+        pay = (Button) findViewById(R.id.pay);
         button.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -47,8 +49,14 @@ public class GeneratorActivity extends AppCompatActivity {
                 catch (WriterException e){
                     e.printStackTrace();
                 }
-
             }
+        });
+        pay.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view){
+                Intent gIntent = new Intent(GeneratorActivity.this, pay2Activity.class);
+                startActivity(gIntent);}
         });
     }
 }

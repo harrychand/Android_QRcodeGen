@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -12,9 +13,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="111dp"
-        android:text="QR Code App"
-        android:textSize="30dp" />
+        android:layout_marginTop="42dp"
+        android:text="Welcome to Sumito Parking"
+        android:textAppearance="@style/TextAppearance.AppCompat.Button" />
 
     <Button
         android:id="@+id/gen"
@@ -22,7 +23,24 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="39dp"
-        android:text="QR GENERATOR" />
+        android:layout_marginTop="25dp"
+        android:text="Get Start" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/gen"
+        android:layout_below="@+id/textClock"
+        android:layout_marginTop="42dp"
+        android:src="@mipmap/ic_smartpark_foreground" />
+
+    <TextClock
+        android:id="@+id/textClock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/textView"
+        android:layout_below="@+id/gen"
+        android:layout_marginTop="75dp" />
 
 </RelativeLayout>
