@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">QRcode</string>
+    <string name="app_name">Sumito Parking</string>
     <string name="title_activity_pay2">PayActivity2</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>

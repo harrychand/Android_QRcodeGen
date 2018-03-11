@@ -18,29 +18,30 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Button" />
 
     <Button
-        android:id="@+id/gen"
+        android:id="@+id/start"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="25dp"
-        android:text="Get Start" />
+        android:text="Get Started" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/gen"
-        android:layout_below="@+id/textClock"
-        android:layout_marginTop="42dp"
+        android:layout_alignStart="@+id/start"
+        android:layout_below="@+id/start"
+        android:layout_marginTop="18dp"
         android:src="@mipmap/ic_smartpark_foreground" />
+
 
     <TextClock
         android:id="@+id/textClock"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/textView"
-        android:layout_below="@+id/gen"
-        android:layout_marginTop="75dp" />
+        android:layout_alignBottom="@+id/start"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/imageView" />
 
 </RelativeLayout>

@@ -1,5 +1,6 @@
 package com.intel.hari.qrcode;
 
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -17,28 +18,46 @@ import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
 import com.journeyapps.barcodescanner.BarcodeEncoder;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 
 public class GeneratorActivity extends AppCompatActivity {
 
-    EditText text;
-    Button button;
+    EditText name_text,carplate_text,phonenum_text;
+    Button generate_button;
     ImageView image;
-    String text2QR;
+
+    String name_string,carplate_string,phonenum_string,text2QR;
+
     Button pay;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_generator);
-        text = (EditText) findViewById(R.id.text);
-        button = (Button) findViewById(R.id.button);
+        name_text = (EditText) findViewById(R.id.name);
+        carplate_text = (EditText) findViewById(R.id.car_plate);
+        phonenum_text = (EditText) findViewById(R.id.phone_number);
+
+        generate_button = (Button) findViewById(R.id.qr);
         image = (ImageView) findViewById(R.id.image);
+
         pay = (Button) findViewById(R.id.pay);
-        button.setOnClickListener(new View.OnClickListener()
+
+        generate_button.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View view){
-                text2QR = text.getText().toString().trim();
+                name_string = name_text.getText().toString().trim();
+                carplate_string = carplate_text.getText().toString().trim();
+                phonenum_string = phonenum_text.getText().toString().trim();
+                text2QR = name_string + "," + carplate_string + "," + phonenum_string;
+
+                Calendar calendar = Calendar.getInstance();
+                SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss");
+                final String time = format.format(calendar.getTime());
+
                 MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
                 try {
                     BitMatrix bitMatrix = multiFormatWriter.encode(text2QR, BarcodeFormat.QR_CODE, 200, 200);
@@ -49,14 +68,22 @@ public class GeneratorActivity extends AppCompatActivity {
                 catch (WriterException e){
                     e.printStackTrace();
                 }
+
+                pay.setOnClickListener(new View.OnClickListener()
+                {
+                    @Override
+                    public void onClick(View view){
+                        Intent pIntent = new Intent(GeneratorActivity.this, pay2Activity.class);
+                        pIntent.putExtra("Name",name_string);
+                        pIntent.putExtra("CarNum",carplate_string);
+                        pIntent.putExtra("PhoneNum",phonenum_string);
+                        pIntent.putExtra("TimeIn",time);
+
+                        startActivity(pIntent);}
+                });
             }
         });
-        pay.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view){
-                Intent gIntent = new Intent(GeneratorActivity.this, pay2Activity.class);
-                startActivity(gIntent);}
-        });
+
+//
     }
 }
